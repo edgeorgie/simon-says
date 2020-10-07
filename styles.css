@@ -30,11 +30,11 @@ body {
   float: left;
 }
 
-.sky-blue {
+.sky_blue {
   background: #22a6b3;
 }
 
-.sky-blue.light {
+.sky_blue.light {
   background: #7ed6df;
 }
 
