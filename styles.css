@@ -1,9 +1,10 @@
 body {
-  margin: 0;
+  align-items: center;
   background: #dedede;
   display: flex;
-  align-items: center;
+  font-family: 'Lucida Sans', Verdana, sans-serif;
   height: 100vh;
+  margin: 0;
 }
 
 .gameboard {

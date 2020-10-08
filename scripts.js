@@ -3,7 +3,7 @@ const sky_blue = document.getElementById('sky_blue')
 const violet = document.getElementById('violet')
 const orange = document.getElementById('orange')
 const green = document.getElementById('green')
-const LAST_LEVEL = 10
+const LAST_LEVEL = 3
 
 class Game{
   constructor() {
@@ -105,14 +105,63 @@ class Game{
         this.removeClickEvents()
 
         if (this.level === (LAST_LEVEL + 1)){
-          // HE WON
+          this.wonGame()
+
         } else {
           setTimeout(this.nextLevel, 700)
         }
       } else {
-        // HE LOST
+        this.loseGame()
       }
     }
+  }
+
+  wonGame() {
+    swal({
+      title: 'Congrats! 🎉🎈',
+      text: 'You would be a genius or something, right?',
+      icon: "success",
+      buttons: {
+        exit : "Exit",
+        play_again: "Play again!",
+      }
+    })
+    .then((value) => {
+      switch (value) {
+
+        case "play_again":
+          startGame()
+          break
+        
+        case "exit":
+          swal('Thanks for play!', 'Follow me on Twitter like @ejorge_dev')
+          break
+      }
+    });
+  }
+
+  loseGame() {
+    swal({
+      title: 'Oh bro... 😓',
+      text: 'You lose the battle but not the war!, right?',
+      icon: "error",
+      buttons: {
+        exit : "Exit",
+        play_again: "Play again!",
+      }
+    })
+    .then((value) => {
+      switch (value) {
+
+        case "play_again":
+          startGame()
+          break
+        
+        case "exit":
+          swal('Thanks for play!', 'Follow me on Twitter like @ejorge_dev')
+          break
+      }
+    });
   }
 }
 
