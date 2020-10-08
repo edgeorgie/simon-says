@@ -15,13 +15,21 @@ class Game{
   initialize() {
     this.nextLevel = this.nextLevel.bind(this)
     this.chooseColor = this.chooseColor.bind(this)
-    btnStart.classList.add('hide')
+    this.toggleBtnStart()
     this.level = 1
     this.colors = {
       sky_blue,
       violet,
       orange,
       green
+    }
+  }
+
+  toggleBtnStart() {
+    if (btnStart.classList.contains('hide')) {
+      btnStart.classList.remove('hide')
+    } else {
+      btnStart.classList.add('hide')
     }
   }
 
@@ -110,9 +118,10 @@ class Game{
         } else {
           setTimeout(this.nextLevel, 700)
         }
-      } else {
-        this.loseGame()
-      }
+      } 
+    } else {
+      this.loseGame()
+    
     }
   }
 
@@ -130,7 +139,7 @@ class Game{
       switch (value) {
 
         case "play_again":
-          startGame()
+          this.initialize()
           break
         
         case "exit":
@@ -154,11 +163,12 @@ class Game{
       switch (value) {
 
         case "play_again":
-          startGame()
+          this.initialize()
           break
         
         case "exit":
           swal('Thanks for play!', 'Follow me on Twitter like @ejorge_dev')
+          this.removeClickEvents()
           break
       }
     });
