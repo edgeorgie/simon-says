@@ -5,7 +5,7 @@ const orange = document.getElementById('orange')
 const green = document.getElementById('green')
 const LAST_LEVEL = 3
 
-class Game{
+class Game {
   constructor() {
     this.initialize()
     this.generateSecuence()
@@ -121,8 +121,7 @@ class Game{
       } 
     } else {
       this.loseGame()
-    
-    }
+      }
   }
 
   wonGame() {
